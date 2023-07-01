@@ -9,18 +9,11 @@ export function userScriptPlugin(options: UserScriptPluginOptions): Plugin {
     return {
         name: 'add-userscript-metaheader',
         generateBundle(_options, bundle) {
-            let file;
-            for (const fileName in bundle) {
-                const chunk = bundle[fileName];
-                if ('isEntry' in chunk && chunk.isEntry) {
-                    file = chunk
-                    break;
-                }
+            const file = Object.values(bundle).find(chunk => 'isEntry' in chunk && chunk.isEntry);
+            if (!file || !('code' in file)) {
+                throw new Error('No entry file found');
             }
-
-            if (file && 'code' in file) {
-                file.code = userScriptConfig + file.code;
-            }
+            file.code = userScriptConfig + file.code;
         }
     }
 }

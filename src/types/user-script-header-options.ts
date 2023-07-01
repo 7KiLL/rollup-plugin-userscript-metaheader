@@ -214,7 +214,7 @@ export type UserScriptHeaderOptions = {
      *
      * @see {@link https://www.tampermonkey.net/documentation.php?locale=en#meta:match Docs}
      */
-    match?: string[];
+    match?: string[] | string;
     /**
      * Exclude URLs even it they are included by `@include` or `@match`.
      *
