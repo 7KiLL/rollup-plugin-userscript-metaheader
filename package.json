@@ -1,0 +1,40 @@
+{
+  "name": "rollup-plugin-userscript-metaheader",
+  "private": false,
+  "version": "0.1.0",
+  "type": "module",
+  "author": {
+    "email": "7killua@gmail.com",
+    "name": "7KiLL"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.2",
+    "tslib": "^2.6.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vite-plugin-dts": "^3.0.2"
+  },
+  "main": "./dist/main.js",
+  "module": "./dist/main.cjs",
+  "typings": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "require": "./dist/main.cjs"
+    },
+    "./dist/*": "./dist/*"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@rollup/plugin-typescript": "^11.1.2",
+    "rollup-plugin-typescript-paths": "^1.4.0",
+    "unbuild": "^1.2.1"
+  }
+}
