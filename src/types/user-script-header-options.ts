@@ -1,4 +1,4 @@
-export interface UserScriptHeaderOptions {
+export type UserScriptHeaderOptions = {
     /**
      * The name of the script.
      *
@@ -31,7 +31,7 @@ export interface UserScriptHeaderOptions {
      * @see {@link https://www.tampermonkey.net/documentation.php?locale=en#meta:version Docs}
      */
 
-    version: string;
+    version: string | number;
     /**
      * A short significant description.
      * @example
@@ -280,7 +280,7 @@ export interface UserScriptHeaderOptions {
      *
      * @see {@link https://www.tampermonkey.net/documentation.php?locale=en#meta:sandbox Docs}
      */
-    sandbox: string;
+    sandbox?: string;
     /**
      * This tag defines the domains (no top-level domains) including subdomains which
      * are allowed to be retrieved by {@link https://www.tampermonkey.net/documentation.php?locale=en#api:GM_xmlhttpRequest GM_xmlhttpRequest}
