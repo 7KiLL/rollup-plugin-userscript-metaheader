@@ -10,10 +10,18 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "test": "vitest --run",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "devDependencies": {
     "@types/node": "^20.3.2",
+    "husky": "^8.0.0",
+    "standard-version": "^9.5.0",
     "tslib": "^2.6.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.3",
@@ -34,6 +42,8 @@
     "dist"
   ],
   "dependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@rollup/plugin-typescript": "^11.1.2",
     "rollup-plugin-typescript-paths": "^1.4.0",
     "unbuild": "^1.2.1"
