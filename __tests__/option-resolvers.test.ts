@@ -52,14 +52,36 @@ describe('resolveBaseOption_function', () => {
     it('test_edge_case_null_key', () => {
         const key = null;
         const value = 'value';
-        expect(() => resolveBaseOption(key, value)).toThrowError('Key cannot be null or undefined');
+        // @ts-ignore
+        expect(() => resolveBaseOption(key, value)).toThrowErrorMatchingSnapshot();
     });
     it('test_edge_case_null_key', () => {
         const key = null;
         const value = 'value';
-        expect(() => resolveBaseOption(key, value)).toThrowError('Key cannot be null or undefined');
+        // @ts-ignore
+        expect(() => resolveBaseOption(key, value)).toThrowErrorMatchingSnapshot()
     });
 
+    it('test_edge_case_numeric_key', function () {
+        const key = 1;
+        const value = 'any'
+        // @ts-ignore
+        expect(resolveBaseOption(key, value)).toMatchSnapshot();
+    });
+
+    it('test_edge_case_object_key', function () {
+        const key = {};
+        const value = 'value';
+        // @ts-ignore
+        expect(() => resolveBaseOption(key, value)).toThrowErrorMatchingSnapshot()
+    });
+
+    it('test_edge_case_array_key', function () {
+        const key: unknown[] = [];
+        const value = 'value';
+        // @ts-ignore
+        expect(() => resolveBaseOption(key, value)).toThrowErrorMatchingSnapshot()
+    });
 });
 
 describe('resolveArrayOption_function', () => {
@@ -90,12 +112,14 @@ describe('resolveArrayOption_function', () => {
     it('test_null_key', () => {
         const key = null
         const values = ['value1', 'value2']
-        expect(() => resolveArrayOption(key, values)).toThrowError("Input 'key' cannot be an empty string")
+        // @ts-ignore
+        expect(() => resolveArrayOption(key, values)).toThrowErrorMatchingSnapshot()
     })
 
     it('test_null_values', () => {
         const key = 'key'
         const values = null
+        // @ts-ignore
         expect(resolveArrayOption(key, values)).toEqual([])
     })
 
@@ -133,7 +157,8 @@ describe('resolveObjectOption_function', () => {
             'value1': 'option1',
             'value2': 'option2'
         };
-        expect(() => resolveObjectOption(key, values)).toThrowError('Key cannot be null or undefined');
+        // @ts-ignore
+        expect(() => resolveObjectOption(key, values)).toThrowErrorMatchingSnapshot();
     });
     it('test_undefined_key', () => {
         const key = undefined;
@@ -141,16 +166,28 @@ describe('resolveObjectOption_function', () => {
             'value1': 'option1',
             'value2': 'option2'
         };
-        expect(() => resolveObjectOption(key, values)).toThrowError('Key cannot be null or undefined');
+        // @ts-ignore
+        expect(() => resolveObjectOption(key, values)).toThrowErrorMatchingSnapshot();
+    });
+    it('test_boolean_object', () => {
+        const key = 'key';
+        const values = {
+            'value1': true,
+            'value2': true
+        };
+        // @ts-ignore
+        expect(resolveObjectOption(key, values)).toMatchSnapshot();
     });
     it('test_null_values_object', () => {
         const key = 'test_key';
         const values = null;
+        // @ts-ignore
         expect(resolveObjectOption(key, values)).toEqual([]);
     });
     it('test_undefined_values_object', () => {
         const key = 'test_key';
         const values = undefined;
+        // @ts-ignore
         expect(resolveObjectOption(key, values)).toEqual([]);
     });
 })

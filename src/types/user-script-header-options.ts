@@ -92,7 +92,7 @@ export type UserScriptHeaderOptions = {
      * If no `@grant` tag is given an empty list is assumed. However, this different from using none.
      * @see {@link https://www.tampermonkey.net/documentation.php?locale=en#meta:grant Docs}
      */
-    grant?: string;
+    grant?: string[] | {[key: string]: any};
     /**
      * The scripts author.
      */

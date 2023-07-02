@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`resolveArrayOption_function > test_null_key 1`] = `"Input 'key' cannot be an empty string"`;
+
+exports[`resolveBaseOption_function > test_edge_case_array_key 1`] = `"Invalid type for key. Only string, and number are accepted"`;
+
+exports[`resolveBaseOption_function > test_edge_case_null_key 1`] = `"Key cannot be null, undefined or an empty string"`;
+
+exports[`resolveBaseOption_function > test_edge_case_null_key 2`] = `"Key cannot be null, undefined or an empty string"`;
+
+exports[`resolveBaseOption_function > test_edge_case_numeric_key 1`] = `"// @1	any"`;
+
+exports[`resolveBaseOption_function > test_edge_case_object_key 1`] = `"Invalid type for key. Only string, and number are accepted"`;
+
+exports[`resolveObjectOption_function > test_boolean_object 1`] = `
+[
+  "// @key	value1",
+  "// @key	value2",
+]
+`;
+
+exports[`resolveObjectOption_function > test_null_key 1`] = `"Key cannot be null, undefined or an empty string"`;
+
+exports[`resolveObjectOption_function > test_undefined_key 1`] = `"Key cannot be null, undefined or an empty string"`;
