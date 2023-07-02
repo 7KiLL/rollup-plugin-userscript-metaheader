@@ -1,8 +1,20 @@
 {
   "name": "rollup-plugin-userscript-metaheader",
   "private": false,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
+  "license": "MIT",
+  "description": "A Rollup plugin to automatically generate userscript meta headers.",
+  "keywords": [
+    "rollup-plugin",
+    "vite-plugin",
+    "userscript",
+    "userscripts",
+    "metaheader",
+    "rollup",
+    "vite",
+    "tampermonkey"
+  ],
   "author": {
     "email": "7killua@gmail.com",
     "name": "7KiLL"
@@ -18,6 +30,14 @@
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
     "release:major": "standard-version --release-as major"
+  },
+  "homepage": "https://github.com/7KiLL/rollup-plugin-userscript-metaheader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/7KiLL/rollup-plugin-userscript-metaheader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/7KiLL/rollup-plugin-userscript-metaheader/issues"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
