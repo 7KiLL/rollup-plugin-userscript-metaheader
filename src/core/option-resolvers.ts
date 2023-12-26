@@ -41,7 +41,10 @@ export function resolveBaseOption(key: string, value: string | boolean | number)
         throw new Error("Invalid type for key. Only string, and number are accepted");
     }
     if (typeof value === 'boolean') {
-        return `// @${key.toString().trim()}`
+        return value ? `// @${key.toString().trim()}` : ``
+    }
+    if (typeof value === 'string' && !value) {
+        return ``
     }
     return `// @${key.toString().trim()}\t${value.toString().trim()}`
 }
